@@ -1,0 +1,76 @@
+version: 2
+jobs:
+  test:
+    docker: &docker
+      - image: cimg/go:1.17
+    steps:
+      - checkout
+      - restore_cache: &restore_cache
+          name: Restore go modules cache
+          keys:
+            - mod-{{ .Environment.COMMON_CACHE_KEY }}-{{ checksum "go.mod" }}
+      - run: &vendoring
+          name: Vendoring
+          command: make download
+      - save_cache: &save_cache
+          name: Save go modules cache
+          key: mod-{{ .Environment.COMMON_CACHE_KEY }}-{{ checksum "go.mod" }}
+          paths:
+            - /go/pkg/mod/cache
+      - run:
+          name: Install statik
+          command: go install github.com/rakyll/statik@v0.1.6
+      - run:
+          name: Install golangci-lint
+          command: curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.43.0
+      - run:
+          name: Generate runtime
+          command: make runtime
+      - run:
+          name: Run linter
+          command: make lint
+      - run:
+          name: Run tests
+          command: make test
+
+  deploy:
+    docker: *docker
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - run: *vendoring
+      - save_cache: *save_cache
+      - run:
+          name: Install statik
+          command: go install github.com/rakyll/statik@v0.1.6
+      - run:
+          name: Add missing and remove unused modules
+          command: make verify
+      - run:
+          name: Build Image
+          command: make build
+      - run:
+          name: Install ghr
+          command: go install github.com/tcnksm/ghr@v0.16.0
+      - deploy:
+          name: Release
+          command: |
+            body=$(sed -n -e "/^# ${CIRCLE_TAG}/,/^#/p" CHANGELOG.md | head -n -1 | tail -n +2)
+            ghr -u $CIRCLE_PROJECT_USERNAME -b "$body" $CIRCLE_TAG abeja-runner
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: /.*/
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
