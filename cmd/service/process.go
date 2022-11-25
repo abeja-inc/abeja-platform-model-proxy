@@ -203,13 +203,7 @@ func run(ctx context.Context, conf *config.Configuration, execDownload bool) err
 	// defer close(request) // <- close clearly in shutdown process
 	defer close(response)
 
-	httpServer, err = proxy.CreateHTTPServer(runtime, request, response, conf)
-	if err != nil {
-		shutdownOnError(ctx, errOnBoot, err)
-		return errors.Errorf(": %w", err)
-	}
-	go httpServer.ListenAndServe(ctx, errOnBoot)
-
+	// Need to finish downloading model/codes before serving healthcheck endpoint
 	if execDownload {
 		err := download(ctx, conf)
 		if err != nil {
@@ -217,6 +211,13 @@ func run(ctx context.Context, conf *config.Configuration, execDownload bool) err
 			return errors.Errorf(": %w", err)
 		}
 	}
+
+	httpServer, err = proxy.CreateHTTPServer(runtime, request, response, conf)
+	if err != nil {
+		shutdownOnError(ctx, errOnBoot, err)
+		return errors.Errorf(": %w", err)
+	}
+	go httpServer.ListenAndServe(ctx, errOnBoot)
 
 	// subprocess logger
 	scopeChan := make(chan context.Context)
