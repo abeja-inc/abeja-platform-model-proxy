@@ -98,6 +98,7 @@ func TestGatewayTimeoutRetry(t *testing.T) {
 	res, err := client.GetThrough(server.URL)
 	tElapsed := time.Since(tStart)
 
+	// 検証
 	if tElapsed.Seconds() < 14 || 15 < tElapsed.Seconds() {
 		t.Errorf("should be exponential backoff. want=14s, result=%fs", tElapsed.Seconds())
 	}
