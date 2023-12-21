@@ -29,7 +29,7 @@ type Downloader struct {
 
 // NewDownloader returns `Downloader`.
 func NewDownloader(baseURL string, authInfo auth.AuthInfo, option *http.Client) (*Downloader, error) {
-	httpClient, err := httpclient.NewRetryHTTPClient(baseURL, downloaderTimeout, 3, 3, authInfo, option)
+	httpClient, err := httpclient.NewRetryHTTPClient(baseURL, downloaderTimeout, 10, authInfo, option)
 	if err != nil {
 		return nil, errors.Errorf("failed to build http client: %w", err)
 	}

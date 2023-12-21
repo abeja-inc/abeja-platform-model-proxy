@@ -28,7 +28,6 @@ func NewRetryHTTPClient(
 	baseURL string,
 	timeout int,
 	retryLimit int,
-	delaySecond int,
 	authInfo auth.AuthInfo,
 	option *http.Client) (*RetryClient, error) {
 
@@ -47,10 +46,6 @@ func NewRetryHTTPClient(
 		return nil, errors.Errorf(
 			"retryLimit must be more than equal 0, but specified %d", retryLimit)
 	}
-	if delaySecond < 0 {
-		return nil, errors.Errorf(
-			"delaySecond must be more than equal 0, but specified %d", delaySecond)
-	}
 
 	var client *pester.Client
 	if option != nil {
@@ -58,11 +53,10 @@ func NewRetryHTTPClient(
 	} else {
 		client = pester.New()
 	}
-	client.Backoff = func(_ int) time.Duration {
-		return time.Duration(delaySecond) * time.Second
-	}
+	client.Backoff = pester.ExponentialBackoff
 	client.MaxRetries = retryLimit
 	client.Timeout = time.Duration(timeout) * time.Second
+	client.KeepLog = true
 
 	return &RetryClient{
 		client:   client,

@@ -17,7 +17,7 @@ require (
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/pierrec/lz4 v2.0.5+incompatible // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/rakyll/statik v0.1.6
+	github.com/rakyll/statik v0.1.7
 	github.com/sethgrid/pester v0.0.0-20190127155807-68a33a018ad0
 	github.com/sirupsen/logrus v1.3.0
 	github.com/spf13/cobra v0.0.3
@@ -25,8 +25,7 @@ require (
 	github.com/tinylib/msgp v1.1.0 // indirect
 	github.com/ulikunitz/xz v0.5.8 // indirect
 	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
-	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550 // indirect
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
+	golang.org/x/net v0.19.0
 	golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898
 	gopkg.in/DataDog/dd-trace-go.v1 v1.16.1
 	gopkg.in/yaml.v2 v2.2.8 // indirect
