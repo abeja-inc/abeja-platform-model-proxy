@@ -1,6 +1,7 @@
 package http
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -16,6 +17,7 @@ import (
 	"github.com/sethgrid/pester"
 
 	"github.com/abeja-inc/platform-model-proxy/util/auth"
+	log "github.com/abeja-inc/platform-model-proxy/util/logging"
 )
 
 type RetryClient struct {
@@ -56,6 +58,7 @@ func NewRetryHTTPClient(
 	client.Backoff = pester.ExponentialBackoff
 	client.MaxRetries = retryLimit
 	client.Timeout = time.Duration(timeout) * time.Second
+	client.RetryOnHTTP429 = false
 	client.KeepLog = true
 
 	return &RetryClient{
@@ -66,7 +69,11 @@ func NewRetryHTTPClient(
 }
 
 func (c *RetryClient) GetThrough(reqURL string) (*http.Response, error) {
-	return c.client.Get(reqURL)
+	resp, err := c.client.Get(reqURL)
+	if resp != nil && resp.StatusCode >= 500 {
+		log.Warningf(context.TODO(), "GET request failed(status=%d)\n%s", resp.StatusCode, c.client.LogString())
+	}
+	return resp, err
 }
 
 func (c *RetryClient) GetJson(reqPath string, param map[string]interface{}, buf interface{}) error {
