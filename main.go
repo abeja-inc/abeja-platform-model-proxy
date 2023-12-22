@@ -14,8 +14,10 @@ import (
 
 func main() {
 	procCtx := context.TODO()
-	log.Infof(procCtx, "abeja-runner: %s", version.Version)
-	os.Exit(execute(procCtx))
+	log.Infof(procCtx, "abeja-runner[%s]: Hello!", version.Version)
+	code := execute(procCtx)
+	log.Infof(procCtx, "abeja-runner[%s]: Bye!", version.Version)
+	os.Exit(code)
 }
 
 func execute(procCtx context.Context) int {
