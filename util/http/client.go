@@ -105,7 +105,11 @@ func (c *RetryClient) GetJson(reqPath string, param map[string]interface{}, buf 
 
 func (c *RetryClient) Do(request *http.Request) (*http.Response, error) {
 	setAuthHeader(c.authInfo, request)
-	return c.client.Do(request)
+	resp, err := c.client.Do(request)
+	if resp != nil && resp.StatusCode >= 500 {
+		log.Warningf(context.TODO(), "GET request failed(status=%d)\n%s", resp.StatusCode, c.client.LogString())
+	}
+	return resp, err
 }
 
 func (c *RetryClient) BuildURL(reqPath string, param map[string]interface{}) string {
