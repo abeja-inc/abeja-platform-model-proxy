@@ -71,7 +71,7 @@ func NewRetryHTTPClient(
 func (c *RetryClient) GetThrough(reqURL string) (*http.Response, error) {
 	resp, err := c.client.Get(reqURL)
 	if resp != nil && resp.StatusCode >= 500 {
-		log.Warningf(context.TODO(), "GET request failed(status=%d)\n%s", resp.StatusCode, c.client.LogString())
+		log.Warningf(context.TODO(), "RetryClient.GetThrough: GET request failed(status=%d)\n%s", resp.StatusCode, c.client.LogString())
 	}
 	return resp, err
 }
@@ -107,7 +107,7 @@ func (c *RetryClient) Do(request *http.Request) (*http.Response, error) {
 	setAuthHeader(c.authInfo, request)
 	resp, err := c.client.Do(request)
 	if resp != nil && resp.StatusCode >= 500 {
-		log.Warningf(context.TODO(), "GET request failed(status=%d)\n%s", resp.StatusCode, c.client.LogString())
+		log.Warningf(context.TODO(), "RetryClient.Do: %s request failed(status=%d)\n%s", request.Method, resp.StatusCode, c.client.LogString())
 	}
 	return resp, err
 }

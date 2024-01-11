@@ -1,3 +1,8 @@
+# 2.6.5
+- Retry strategy changed to EXPONENTIAL BACKOFF
+- The number of retries for the download function is 10 and the maximum wait time is 17 minutes
+- Added log output
+
 # 2.6.4
 - fix dependabot alerts (#71)
 

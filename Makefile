@@ -20,10 +20,18 @@ clean-test:
 test: clean-test
 	go test ./...
 
+.PHONY: test-all
+test-all: clean-test
+	go test -tags=extra ./...
+
 TARGET = Test
 .PHONY: test-target
 test-target: clean-test
 	go test -run ${TARGET} ./...
+
+.PHONY: test-target-all
+test-target-all: clean-test
+	go test -run ${TARGET} -tags=extra ./...
 
 .PHONY: download
 download:

@@ -87,8 +87,11 @@ $ make build
 
 ### Run Tests
 
-```
+```bash
 $ make test
+
+# includes extra test (will take time)
+$ make test-all
 ```
 
 ## Release
