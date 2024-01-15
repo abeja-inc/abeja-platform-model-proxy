@@ -10,7 +10,7 @@ import (
 func TestBuildURL(t *testing.T) {
 
 	authInfo := auth.AuthInfo{AuthToken: "token"}
-	client, _ := NewRetryHTTPClient("http://localhost", 1, 1, 1, authInfo, nil)
+	client, _ := NewRetryHTTPClient("http://localhost", 1, 1, authInfo, nil)
 
 	cases := []struct {
 		name           string

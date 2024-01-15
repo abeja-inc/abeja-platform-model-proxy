@@ -9,11 +9,15 @@ import (
 	"github.com/abeja-inc/platform-model-proxy/cmd"
 	"github.com/abeja-inc/platform-model-proxy/config"
 	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/platform-model-proxy/version"
 )
 
 func main() {
 	procCtx := context.TODO()
-	os.Exit(execute(procCtx))
+	log.Infof(procCtx, "abeja-runner[%s]: Hello!", version.Version)
+	code := execute(procCtx)
+	log.Infof(procCtx, "abeja-runner[%s]: Bye!", version.Version)
+	os.Exit(code)
 }
 
 func execute(procCtx context.Context) int {

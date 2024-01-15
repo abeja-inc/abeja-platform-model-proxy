@@ -60,7 +60,7 @@ func sendAsyncErrorToARMS(
 
 	authInfo := auth.AuthInfo{AuthToken: token}
 	httpClient, err :=
-		httpclient.NewRetryHTTPClient(conf.APIURL, 30, 3, 3, authInfo, option)
+		httpclient.NewRetryHTTPClient(conf.APIURL, 30, 3, authInfo, option)
 	if err != nil {
 		log.Error(ctx, "unexpected error occurred in sending error async response: ", err)
 		return
@@ -259,7 +259,7 @@ func sendAsyncResponse(
 		defer cleanutil.Close(ctx, pr, "pipeReader")
 		authInfo := auth.AuthInfo{AuthToken: contents.AsyncARMSToken}
 		httpClient, err :=
-			httpclient.NewRetryHTTPClient(conf.APIURL, 30, 3, 3, authInfo, option)
+			httpclient.NewRetryHTTPClient(conf.APIURL, 30, 3, authInfo, option)
 		if err != nil {
 			done <- err
 			return

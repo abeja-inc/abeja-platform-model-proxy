@@ -1,6 +1,7 @@
 package http
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -16,6 +17,7 @@ import (
 	"github.com/sethgrid/pester"
 
 	"github.com/abeja-inc/platform-model-proxy/util/auth"
+	log "github.com/abeja-inc/platform-model-proxy/util/logging"
 )
 
 type RetryClient struct {
@@ -28,7 +30,6 @@ func NewRetryHTTPClient(
 	baseURL string,
 	timeout int,
 	retryLimit int,
-	delaySecond int,
 	authInfo auth.AuthInfo,
 	option *http.Client) (*RetryClient, error) {
 
@@ -47,10 +48,6 @@ func NewRetryHTTPClient(
 		return nil, errors.Errorf(
 			"retryLimit must be more than equal 0, but specified %d", retryLimit)
 	}
-	if delaySecond < 0 {
-		return nil, errors.Errorf(
-			"delaySecond must be more than equal 0, but specified %d", delaySecond)
-	}
 
 	var client *pester.Client
 	if option != nil {
@@ -58,11 +55,11 @@ func NewRetryHTTPClient(
 	} else {
 		client = pester.New()
 	}
-	client.Backoff = func(_ int) time.Duration {
-		return time.Duration(delaySecond) * time.Second
-	}
+	client.Backoff = pester.ExponentialBackoff
 	client.MaxRetries = retryLimit
 	client.Timeout = time.Duration(timeout) * time.Second
+	client.RetryOnHTTP429 = false
+	client.KeepLog = true
 
 	return &RetryClient{
 		client:   client,
@@ -72,7 +69,11 @@ func NewRetryHTTPClient(
 }
 
 func (c *RetryClient) GetThrough(reqURL string) (*http.Response, error) {
-	return c.client.Get(reqURL)
+	resp, err := c.client.Get(reqURL)
+	if resp != nil && resp.StatusCode >= 500 {
+		log.Warningf(context.TODO(), "RetryClient.GetThrough: GET request failed(status=%d)\n%s", resp.StatusCode, c.client.LogString())
+	}
+	return resp, err
 }
 
 func (c *RetryClient) GetJson(reqPath string, param map[string]interface{}, buf interface{}) error {
@@ -104,7 +105,11 @@ func (c *RetryClient) GetJson(reqPath string, param map[string]interface{}, buf 
 
 func (c *RetryClient) Do(request *http.Request) (*http.Response, error) {
 	setAuthHeader(c.authInfo, request)
-	return c.client.Do(request)
+	resp, err := c.client.Do(request)
+	if resp != nil && resp.StatusCode >= 500 {
+		log.Warningf(context.TODO(), "RetryClient.Do: %s request failed(status=%d)\n%s", request.Method, resp.StatusCode, c.client.LogString())
+	}
+	return resp, err
 }
 
 func (c *RetryClient) BuildURL(reqPath string, param map[string]interface{}) string {

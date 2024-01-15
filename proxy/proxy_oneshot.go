@@ -196,7 +196,7 @@ func uploadResult(
 	option *http.Client) error {
 
 	httpClient, err :=
-		httpclient.NewRetryHTTPClient(conf.APIURL, 30, 3, 3, conf.GetAuthInfo(), option)
+		httpclient.NewRetryHTTPClient(conf.APIURL, 30, 3, conf.GetAuthInfo(), option)
 	if err != nil {
 		return err
 	}
