@@ -10,8 +10,8 @@ import (
 
 	errors "golang.org/x/xerrors"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
 )
 
 // DummyMethodForResponse is dummy-http-method for response.

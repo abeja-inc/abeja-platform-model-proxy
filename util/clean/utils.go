@@ -7,7 +7,7 @@ import (
 	"os"
 	"runtime"
 
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 func Close(ctx context.Context, v interface{}, target string) {

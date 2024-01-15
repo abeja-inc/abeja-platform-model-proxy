@@ -10,10 +10,10 @@ import (
 
 	errors "golang.org/x/xerrors"
 
-	"github.com/abeja-inc/platform-model-proxy/util/auth"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	httpclient "github.com/abeja-inc/platform-model-proxy/util/http"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util/auth"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	httpclient "github.com/abeja-inc/abeja-platform-model-proxy/util/http"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 const downloaderTimeout = 600 // 10 minutes

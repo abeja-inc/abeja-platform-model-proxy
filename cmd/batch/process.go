@@ -10,13 +10,13 @@ import (
 
 	errors "golang.org/x/xerrors"
 
-	cmdutil "github.com/abeja-inc/platform-model-proxy/cmd/util"
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/preprocess"
-	"github.com/abeja-inc/platform-model-proxy/proxy"
-	"github.com/abeja-inc/platform-model-proxy/subprocess"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	cmdutil "github.com/abeja-inc/abeja-platform-model-proxy/cmd/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/preprocess"
+	"github.com/abeja-inc/abeja-platform-model-proxy/proxy"
+	"github.com/abeja-inc/abeja-platform-model-proxy/subprocess"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 var runtime *subprocess.Runtime

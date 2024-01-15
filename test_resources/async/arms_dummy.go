@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/convert"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/convert"
 )
 
 func main() {

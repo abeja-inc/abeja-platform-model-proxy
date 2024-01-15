@@ -1,4 +1,4 @@
-module github.com/abeja-inc/platform-model-proxy
+module github.com/abeja-inc/abeja-platform-model-proxy
 
 require (
 	github.com/bitly/go-simplejson v0.5.0

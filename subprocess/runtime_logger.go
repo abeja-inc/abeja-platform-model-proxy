@@ -15,7 +15,7 @@ import (
 	"github.com/bitly/go-simplejson"
 	"github.com/sirupsen/logrus"
 
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 const maxLogSize = 1024 * 250

@@ -16,14 +16,14 @@ import (
 
 	errors "golang.org/x/xerrors"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/convert"
-	"github.com/abeja-inc/platform-model-proxy/entity"
-	"github.com/abeja-inc/platform-model-proxy/util"
-	"github.com/abeja-inc/platform-model-proxy/util/auth"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	httpclient "github.com/abeja-inc/platform-model-proxy/util/http"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/convert"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util/auth"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	httpclient "github.com/abeja-inc/abeja-platform-model-proxy/util/http"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 const errorMessageForAsync = `{

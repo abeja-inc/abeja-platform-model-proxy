@@ -11,11 +11,11 @@ import (
 
 	errors "golang.org/x/xerrors"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/entity"
-	"github.com/abeja-inc/platform-model-proxy/util"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
-	"github.com/abeja-inc/platform-model-proxy/version"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/version"
 )
 
 type defaultConverter struct{}

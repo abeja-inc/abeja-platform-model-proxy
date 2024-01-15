@@ -5,7 +5,7 @@ import (
 	"mime"
 	"strings"
 
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 // DefaultExt is default extension for not binary file.

@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
 )
 
 func TestMain(m *testing.M) {

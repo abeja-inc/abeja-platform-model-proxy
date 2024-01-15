@@ -6,10 +6,10 @@ import (
 
 	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
 
-	"github.com/abeja-inc/platform-model-proxy/cmd"
-	"github.com/abeja-inc/platform-model-proxy/config"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
-	"github.com/abeja-inc/platform-model-proxy/version"
+	"github.com/abeja-inc/abeja-platform-model-proxy/cmd"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/version"
 )
 
 func main() {

@@ -10,11 +10,11 @@ import (
 	"golang.org/x/net/netutil"
 	httptrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/net/http"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/entity"
-	"github.com/abeja-inc/platform-model-proxy/subprocess"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/subprocess"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 // HTTPServer represents the wrapper of net/http/Server.

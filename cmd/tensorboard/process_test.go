@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
 )
 
 func TestRemoveDuplicates(t *testing.T) {

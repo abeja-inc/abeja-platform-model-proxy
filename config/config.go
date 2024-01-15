@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/abeja-inc/platform-model-proxy/util/auth"
-	pathutil "github.com/abeja-inc/platform-model-proxy/util/path"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util/auth"
+	pathutil "github.com/abeja-inc/abeja-platform-model-proxy/util/path"
 )
 
 const DefaultAbejaAPIURL = "https://api.abeja.io"

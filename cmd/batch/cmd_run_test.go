@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	cmdutil "github.com/abeja-inc/platform-model-proxy/cmd/util"
-	"github.com/abeja-inc/platform-model-proxy/config"
+	cmdutil "github.com/abeja-inc/abeja-platform-model-proxy/cmd/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
 )
 
 func TestSetupRunConfiguration(t *testing.T) {

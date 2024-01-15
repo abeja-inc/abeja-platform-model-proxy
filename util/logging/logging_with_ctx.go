@@ -10,7 +10,7 @@ import (
 	"github.com/sirupsen/logrus"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/abeja-inc/platform-model-proxy/version"
+	"github.com/abeja-inc/abeja-platform-model-proxy/version"
 )
 
 const KeyRequestID = "request_id"

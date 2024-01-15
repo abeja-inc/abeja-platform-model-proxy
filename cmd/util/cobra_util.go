@@ -4,8 +4,8 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	pathutil "github.com/abeja-inc/platform-model-proxy/util/path"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	pathutil "github.com/abeja-inc/abeja-platform-model-proxy/util/path"
 )
 
 func bindLocalIntOption(

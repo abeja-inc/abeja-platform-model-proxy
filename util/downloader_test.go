@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/abeja-inc/platform-model-proxy/util/auth"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	httputil "github.com/abeja-inc/platform-model-proxy/util/http"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util/auth"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	httputil "github.com/abeja-inc/abeja-platform-model-proxy/util/http"
 )
 
 const validToken = "valid_token"

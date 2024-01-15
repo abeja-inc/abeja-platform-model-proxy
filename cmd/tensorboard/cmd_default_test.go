@@ -7,28 +7,28 @@ import (
 	"strings"
 	"testing"
 
-	cmdutil "github.com/abeja-inc/platform-model-proxy/cmd/util"
-	"github.com/abeja-inc/platform-model-proxy/config"
+	cmdutil "github.com/abeja-inc/abeja-platform-model-proxy/cmd/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
 )
 
 func TestSetupDefaultConfiguration(t *testing.T) {
 
 	cases := []struct {
-		name          string
-		optionEnv     cmdutil.AllOptions
-		hasError      bool
-		expects       cmdutil.AllOptions
-		errMsg        string
+		name      string
+		optionEnv cmdutil.AllOptions
+		hasError  bool
+		expects   cmdutil.AllOptions
+		errMsg    string
 	}{
 		{
 			name: "missing multi required",
 			optionEnv: cmdutil.AllOptions{
-				AbejaApiUrl:                 "",
-				AbejaOrganizationID:         "",
-				PlatformAuthToken:           "",
-				TrainingJobDefinitionName:   "xxx",
-				TrainingJobIDS:              "12345",
-				TensorboardID:               "10000",
+				AbejaApiUrl:               "",
+				AbejaOrganizationID:       "",
+				PlatformAuthToken:         "",
+				TrainingJobDefinitionName: "xxx",
+				TrainingJobIDS:            "12345",
+				TensorboardID:             "10000",
 			},
 			hasError: true,
 			expects:  cmdutil.AllOptions{},
@@ -36,21 +36,21 @@ func TestSetupDefaultConfiguration(t *testing.T) {
 		}, {
 			name: "env and cmdline full",
 			optionEnv: cmdutil.AllOptions{
-				AbejaApiUrl:                 "https://api.dev.abeja.io",
-				AbejaOrganizationID:         "1111111111111",
-				PlatformAuthToken:           "aaaaaaaaaa",
-				TrainingJobIDS:              "1,2,3,4",
-				TrainingJobDefinitionName:   "5555555555555",
-				TensorboardID:               "1230000000000",
+				AbejaApiUrl:               "https://api.dev.abeja.io",
+				AbejaOrganizationID:       "1111111111111",
+				PlatformAuthToken:         "aaaaaaaaaa",
+				TrainingJobIDS:            "1,2,3,4",
+				TrainingJobDefinitionName: "5555555555555",
+				TensorboardID:             "1230000000000",
 			},
 			hasError: false,
 			expects: cmdutil.AllOptions{
-				AbejaApiUrl:                 "https://api.dev.abeja.io",
-				AbejaOrganizationID:         "1111111111111",
-				PlatformAuthToken:           "aaaaaaaaaa",
-				TrainingJobIDS:              "1,2,3,4",
-				TrainingJobDefinitionName:   "5555555555555",
-				TensorboardID:               "1230000000000",
+				AbejaApiUrl:               "https://api.dev.abeja.io",
+				AbejaOrganizationID:       "1111111111111",
+				PlatformAuthToken:         "aaaaaaaaaa",
+				TrainingJobIDS:            "1,2,3,4",
+				TrainingJobDefinitionName: "5555555555555",
+				TensorboardID:             "1230000000000",
 			},
 			errMsg: "",
 		},

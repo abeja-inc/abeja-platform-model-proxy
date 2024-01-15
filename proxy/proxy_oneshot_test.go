@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
 )
 
 func TestTransportOneshotMessage_DialError(t *testing.T) {

@@ -16,9 +16,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/entity"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
 )
 
 func RemoveUDSFile(path string, t *testing.T) {

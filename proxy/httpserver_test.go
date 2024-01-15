@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/entity"
-	"github.com/abeja-inc/platform-model-proxy/subprocess"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/subprocess"
 )
 
 func TestHealthCheck(t *testing.T) {

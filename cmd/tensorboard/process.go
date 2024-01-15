@@ -12,10 +12,10 @@ import (
 	"github.com/cenkalti/backoff/v4"
 	errors "golang.org/x/xerrors"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/util"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 const retryCount uint64 = 5

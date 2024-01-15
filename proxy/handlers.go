@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/convert"
-	"github.com/abeja-inc/platform-model-proxy/entity"
-	"github.com/abeja-inc/platform-model-proxy/subprocess"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/convert"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/subprocess"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 func getHealthCheckHandleFunc(runtime *subprocess.Runtime) func(w http.ResponseWriter, r *http.Request) {

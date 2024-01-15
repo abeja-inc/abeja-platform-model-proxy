@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	cmdutil "github.com/abeja-inc/platform-model-proxy/cmd/util"
-	"github.com/abeja-inc/platform-model-proxy/config"
-	pathutil "github.com/abeja-inc/platform-model-proxy/util/path"
+	cmdutil "github.com/abeja-inc/abeja-platform-model-proxy/cmd/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	pathutil "github.com/abeja-inc/abeja-platform-model-proxy/util/path"
 )
 
 func TestSetupTrainConfiguration(t *testing.T) {

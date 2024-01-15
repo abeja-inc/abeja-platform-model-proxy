@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	httputil "github.com/abeja-inc/platform-model-proxy/util/http"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	httputil "github.com/abeja-inc/abeja-platform-model-proxy/util/http"
 )
 
 func TestFromInput(t *testing.T) {

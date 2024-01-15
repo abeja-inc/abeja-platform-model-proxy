@@ -13,11 +13,11 @@ import (
 
 	simplejson "github.com/bitly/go-simplejson"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/convert"
-	"github.com/abeja-inc/platform-model-proxy/entity"
-	"github.com/abeja-inc/platform-model-proxy/util"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/convert"
+	"github.com/abeja-inc/abeja-platform-model-proxy/entity"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
 )
 
 // === Protocol

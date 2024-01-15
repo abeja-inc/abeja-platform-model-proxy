@@ -9,9 +9,9 @@ import (
 
 	errors "golang.org/x/xerrors"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	"github.com/abeja-inc/platform-model-proxy/util"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
 )
 
 // SourceResJSON is struct for extract `download_uri` from ABEJA-Platform API.

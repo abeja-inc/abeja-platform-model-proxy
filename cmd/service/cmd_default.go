@@ -9,11 +9,11 @@ import (
 	"github.com/spf13/viper"
 	errors "golang.org/x/xerrors"
 
-	cmdutil "github.com/abeja-inc/platform-model-proxy/cmd/util"
-	"github.com/abeja-inc/platform-model-proxy/config"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
-	"github.com/abeja-inc/platform-model-proxy/version"
+	cmdutil "github.com/abeja-inc/abeja-platform-model-proxy/cmd/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/version"
 )
 
 var (

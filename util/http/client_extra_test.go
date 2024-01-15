@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/abeja-inc/platform-model-proxy/util/auth"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util/auth"
 )
 
 func TestGatewayTimeoutRetry(t *testing.T) {

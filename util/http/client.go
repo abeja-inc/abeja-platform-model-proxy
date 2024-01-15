@@ -16,8 +16,8 @@ import (
 
 	"github.com/sethgrid/pester"
 
-	"github.com/abeja-inc/platform-model-proxy/util/auth"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util/auth"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 type RetryClient struct {

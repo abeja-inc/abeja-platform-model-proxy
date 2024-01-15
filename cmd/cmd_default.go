@@ -5,12 +5,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	batchcmd "github.com/abeja-inc/platform-model-proxy/cmd/batch"
-	servecmd "github.com/abeja-inc/platform-model-proxy/cmd/service"
-	tensorboardcmd "github.com/abeja-inc/platform-model-proxy/cmd/tensorboard"
-	traincmd "github.com/abeja-inc/platform-model-proxy/cmd/training"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
-	"github.com/abeja-inc/platform-model-proxy/version"
+	batchcmd "github.com/abeja-inc/abeja-platform-model-proxy/cmd/batch"
+	servecmd "github.com/abeja-inc/abeja-platform-model-proxy/cmd/service"
+	tensorboardcmd "github.com/abeja-inc/abeja-platform-model-proxy/cmd/tensorboard"
+	traincmd "github.com/abeja-inc/abeja-platform-model-proxy/cmd/training"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/version"
 )
 
 var procCtx context.Context

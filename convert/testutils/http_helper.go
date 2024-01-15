@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
 )
 
 // helper functions

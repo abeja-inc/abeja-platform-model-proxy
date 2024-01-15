@@ -12,12 +12,12 @@ import (
 	"github.com/rakyll/statik/fs"
 	errors "golang.org/x/xerrors"
 
-	cmdutil "github.com/abeja-inc/platform-model-proxy/cmd/util"
-	"github.com/abeja-inc/platform-model-proxy/config"
-	_ "github.com/abeja-inc/platform-model-proxy/runtime"
-	"github.com/abeja-inc/platform-model-proxy/subprocess"
-	cleanutil "github.com/abeja-inc/platform-model-proxy/util/clean"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	cmdutil "github.com/abeja-inc/abeja-platform-model-proxy/cmd/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	_ "github.com/abeja-inc/abeja-platform-model-proxy/runtime"
+	"github.com/abeja-inc/abeja-platform-model-proxy/subprocess"
+	cleanutil "github.com/abeja-inc/abeja-platform-model-proxy/util/clean"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 var runtimeMap = map[string][]string{

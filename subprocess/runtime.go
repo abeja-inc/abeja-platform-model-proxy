@@ -10,8 +10,8 @@ import (
 
 	errors "golang.org/x/xerrors"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
-	log "github.com/abeja-inc/platform-model-proxy/util/logging"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
+	log "github.com/abeja-inc/abeja-platform-model-proxy/util/logging"
 )
 
 // runtimeMap represents mapping of programming-language and executable-file-path.

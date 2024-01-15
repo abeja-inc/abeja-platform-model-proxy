@@ -11,7 +11,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	errors "golang.org/x/xerrors"
 
-	pathutil "github.com/abeja-inc/platform-model-proxy/util/path"
+	pathutil "github.com/abeja-inc/abeja-platform-model-proxy/util/path"
 )
 
 var ErrorFormat string

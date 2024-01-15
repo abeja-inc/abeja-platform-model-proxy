@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	pathutil "github.com/abeja-inc/platform-model-proxy/util/path"
+	pathutil "github.com/abeja-inc/abeja-platform-model-proxy/util/path"
 )
 
 func TestGetListenAddress(t *testing.T) {

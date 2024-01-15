@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	cmdutil "github.com/abeja-inc/platform-model-proxy/cmd/util"
-	"github.com/abeja-inc/platform-model-proxy/config"
+	cmdutil "github.com/abeja-inc/abeja-platform-model-proxy/cmd/util"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
 )
 
 func TestSetupDownloadConfiguration(t *testing.T) {

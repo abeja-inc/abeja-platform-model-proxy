@@ -3,7 +3,7 @@ package subprocess
 import (
 	"testing"
 
-	"github.com/abeja-inc/platform-model-proxy/config"
+	"github.com/abeja-inc/abeja-platform-model-proxy/config"
 )
 
 func TestServiceRuntimeLanguageError(t *testing.T) {

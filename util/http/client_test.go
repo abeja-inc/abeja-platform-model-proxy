@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/abeja-inc/platform-model-proxy/util/auth"
+	"github.com/abeja-inc/abeja-platform-model-proxy/util/auth"
 )
 
 func TestBuildURL(t *testing.T) {
