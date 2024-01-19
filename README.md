@@ -79,10 +79,16 @@ Using [GolangCI-Lint](https://github.com/golangci/golangci-lint).
 $ make lint
 ```
 
-### Build
+### Build (Old)
 
 ```
 $ make build
+```
+
+### Build
+
+```
+$ docker compose run --rm builder
 ```
 
 ### Run Tests
@@ -94,7 +100,7 @@ $ make test
 $ make test-all
 ```
 
-## Release
+## Release (Old)
 
 Use git-flow.
 
@@ -128,6 +134,14 @@ $ git push origin master
 ```
 
 Pushing the tag to Github will automatically release the binary to Github Releases.
+
+## Release
+
+Currently released manually
+
+1. tag as release
+1. create a release
+1. upload the built abeja-runner to asetts
 
 ## Contribution
 

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: builder
+    volumes:
+      - "./output:/output"
+    command: >
+      bash -c 'cd / &&
+      git clone https://github.com/abeja-inc/abeja-platform-model-proxy.git &&
+      cd /abeja-platform-model-proxy &&
+      /root/go/bin/statik -src=./runtime_src -p=runtime &&
+      /usr/local/go/bin/go build -o abeja-runner &&
+      cp abeja-runner /output/'
