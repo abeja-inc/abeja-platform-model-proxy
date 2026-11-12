@@ -61,3 +61,6 @@ __pycache__
 runtime/
 
 .go-version
+
+# Claude Code local settings may contain sensitive command arguments.
+**/.claude/settings.local.json
