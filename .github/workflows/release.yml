@@ -1,0 +1,88 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to publish
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Resolve release tag
+        id: release_tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            tag="${{ inputs.tag }}"
+          else
+            tag="${GITHUB_REF_NAME}"
+          fi
+
+          if ! [[ "${tag}" =~ ^[0-9]+(\.[0-9]+)*$ ]]; then
+            echo "Release tag must match [0-9]+(.[0-9]+)*: ${tag}" >&2
+            exit 1
+          fi
+
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.release_tag.outputs.tag }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.17"
+          cache: true
+
+      - name: Set up tool bin
+        run: |
+          mkdir -p "${RUNNER_TEMP}/bin"
+          echo "${RUNNER_TEMP}/bin" >> "$GITHUB_PATH"
+
+      - name: Download modules
+        run: make download
+
+      - name: Install statik
+        run: GOBIN="${RUNNER_TEMP}/bin" go install github.com/rakyll/statik@v0.1.6
+
+      - name: Verify modules
+        run: make verify
+
+      - name: Build binary
+        run: make build
+
+      - name: Extract release notes
+        id: release_notes
+        run: |
+          tag="${{ steps.release_tag.outputs.tag }}"
+          body="$(awk -v tag="${tag}" '
+            $0 == "# " tag { in_section = 1; next }
+            in_section && /^# / { exit }
+            in_section { print }
+          ' CHANGELOG.md)"
+          {
+            echo "body<<EOF"
+            printf "%s\n" "${body}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.release_tag.outputs.tag }}
+          name: ${{ steps.release_tag.outputs.tag }}
+          body: ${{ steps.release_notes.outputs.body }}
+          files: abeja-runner
